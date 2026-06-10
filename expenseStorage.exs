@@ -10,7 +10,7 @@ defmodule ExpenseStorage do
   def load_expenses() do
     case File.read("expenses.txt") do
       {:ok, content} -> String.split(content, "\n", trim: true)
-      {:error, _} -> ["failed to load expenses"]
+      {:error, reason} -> ["failed to load expenses", reason]
     end
   end
 end
